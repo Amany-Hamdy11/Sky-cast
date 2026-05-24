@@ -1,0 +1,327 @@
+ <style>
+    /* ================== إعدادات عامة ================== */
+    * {
+      box-sizing: border-box;
+    }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background:
+    linear-gradient(rgba(7, 32, 54, 0.2), rgba(7, 32, 54, 0.2)),
+    linear-gradient(160deg, rgba(11, 70, 120, 0.98), rgba(24, 100, 140, 0.94));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  color: #1f2937;
+    }
+
+    /* ================== الكارت الرئيسي ================== */
+.container {
+  width: 100%;
+  max-width: 860px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.18));
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-radius: 30px;
+  box-shadow: 0 28px 70px rgba(6, 25, 43, 0.34);
+  padding: 26px 26px 22px;
+}
+
+    /* ================== الهيدر ================== */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(59, 130, 246, 0.10);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.2;
+      color: #1e3a8a;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    /* أيقونة الهيدر */
+    .icon {
+      font-size: 30px;
+      display: inline-block;
+      animation: floatCloud 3s ease-in-out infinite;
+    }
+
+    @keyframes floatCloud {
+      0%   { transform: translateY(0); }
+      50%  { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* ================== الفورم ================== */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.08));
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 22px;
+      padding: 16px;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+.input-box {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.14));
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: 0 16px 34px rgba(31, 41, 55, 0.1);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .input-box label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .input-box input,
+    .input-box select {
+      width: 100%;
+      max-width: 100%;
+      height: 46px;
+      border: none;
+      outline: none;
+      border-radius: 12px;
+      padding: 0 14px;
+      display: block;
+      font-size: 15px;
+      background: rgba(255, 255, 255, 0.98);
+      color: #1f2937;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+      transition: 0.25s ease;
+    }
+
+    .input-box input::placeholder {
+      color: #94a3b8;
+    }
+
+    /* حركة خفيفة للـ city و day */
+    .input-box input:hover,
+    .input-box select:hover,
+    .input-box input:focus,
+    .input-box select:focus {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 16px rgba(59, 130, 246, 0.12);
+    }
+
+    /* ================== الأزرار ================== */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    button {
+      min-width: 150px;
+      height: 48px;
+      border: none;
+      border-radius: 14px;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .submit-btn {
+      color: white;
+      background: linear-gradient(to right, #3b82f6, #60a5fa);
+      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.22);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .clean-btn {
+      color: #475569;
+      background: #e9edf2;
+    }
+
+    .clean-btn:hover {
+      background: #dde5ee;
+      transform: translateY(-2px);
+    }
+
+    /* ================== صندوق النتيجة ================== */
+    .result-box {
+      margin-top: 22px;
+      padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.12));
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .result-title {
+      text-align: center;
+      margin: 0 0 14px;
+      font-size: 24px;
+      font-weight: 700;
+      color: #1e3a8a;
+    }
+
+    .result-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .result-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.16));
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 18px;
+      padding: 16px 18px;
+      min-height: 98px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 16px 34px rgba(31, 41, 55, 0.1);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .result-label {
+      font-size: 15px;
+      color: #64748b;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .result-value {
+      font-size: 28px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .loading {
+      text-align: center;
+      font-size: 20px;
+      color: #1e3a8a;
+      padding: 10px 0;
+    }
+
+    .error {
+      text-align: center;
+      font-size: 18px;
+      color: #dc2626;
+      padding: 8px 0;
+    }
+
+    /* ================== ألوان النتيجة ================== */
+    .rain-text {
+      color: #3b82f6;
+    }
+
+    .no-rain-text {
+      color: #60a5fa;
+    }
+
+    .temp-text {
+      color: #ef4444;
+    }
+
+    /* ================== شمس + سحابة ================== */
+    .weather-group {
+      position: relative;
+      display: inline-block;
+      width: 42px;
+      height: 28px;
+      animation: moveWeather 3s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .sun {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .cloud {
+      position: absolute;
+      left: 14px;
+      top: 6px;
+      font-size: 22px;
+      line-height: 1;
+      opacity: 0.95;
+    }
+
+    @keyframes moveWeather {
+      0%   { transform: translateX(0); }
+      50%  { transform: translateX(8px); }
+      100% { transform: translateX(0); }
+    }
+
+    /* ================== ترموميتر متحرك ================== */
+    .temp-icon {
+      display: inline-block;
+      animation: pulseTempIcon 1.5s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseTempIcon {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    .meta-line {
+      margin-top: 12px;
+      text-align: center;
+      font-size: 14px;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    /* ================== موبايل ================== */
+    @media (max-width: 760px) {
+      .container {
+        padding: 22px 18px 18px;
+      }
+
+      .header h1 {
+        font-size: 26px;
+      }
+
+      .form-grid,
+      .result-content {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        min-width: 130px;
+        font-size: 18px;
+      }
+
+      .result-value {
+        font-size: 24px;
+      }
+    }
+  </style>
