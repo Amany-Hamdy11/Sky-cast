@@ -1,0 +1,474 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --surface: rgba(255, 255, 255, 0.72);
+  --surface-strong: rgba(255, 255, 255, 0.88);
+  --surface-deep: rgba(15, 45, 73, 0.84);
+  --text: #17324d;
+  --muted: #5f768d;
+  --line: rgba(23, 50, 77, 0.1);
+  --primary: #0f6cbd;
+  --primary-dark: #0a4f8a;
+  --accent: #f0a202;
+  --shadow: 0 24px 60px rgba(27, 60, 91, 0.14);
+}
+
+body {
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(rgba(10, 28, 47, 0.42), rgba(10, 28, 47, 0.3)),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.22), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(240, 162, 2, 0.16), transparent 24%),
+    url("https://commons.wikimedia.org/wiki/Special:Redirect/file/Clouds%20in%20the%20sky%20landscape.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 32px;
+}
+
+.landing-page {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 24px;
+  align-items: stretch;
+}
+
+.hero-copy,
+.hero-panel,
+.feature-card,
+.workflow-section,
+.city-panel,
+.insight-panel,
+.cta-banner,
+.stat-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.hero-copy {
+  padding: 42px;
+}
+
+.eyebrow,
+.feature-kicker {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(15, 108, 189, 0.1);
+  color: var(--primary-dark);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin-bottom: 16px;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.4rem, 4vw, 4.4rem);
+  line-height: 1.04;
+  max-width: 10ch;
+}
+
+.hero-text,
+.feature-text,
+.workflow-card p,
+.city-panel p,
+.insight-box span {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.hero-text {
+  margin-top: 18px;
+  max-width: 60ch;
+  font-size: 17px;
+}
+
+.hero-actions,
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-actions {
+  margin-top: 28px;
+}
+
+.primary-action,
+.secondary-action,
+.card-action {
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.primary-action,
+.secondary-action {
+  min-width: 190px;
+  padding: 16px 22px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.primary-action {
+  background: linear-gradient(135deg, var(--primary), #3b91d8);
+  color: #fff;
+  box-shadow: 0 16px 32px rgba(15, 108, 189, 0.24);
+}
+
+.secondary-action {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text);
+  border: 1px solid rgba(23, 50, 77, 0.12);
+}
+
+.hero-panel {
+  padding: 22px;
+  display: flex;
+}
+
+.hero-card {
+  width: 100%;
+  border-radius: 24px;
+  padding: 26px;
+  background:
+    linear-gradient(160deg, rgba(11, 70, 120, 0.98), rgba(24, 100, 140, 0.94)),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent);
+  color: #eff8ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.card-label {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(239, 248, 255, 0.74);
+}
+
+.temp-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  margin: 22px 0 12px;
+}
+
+.temp-value {
+  font-size: clamp(3rem, 4vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.temp-city {
+  font-size: 18px;
+  color: rgba(239, 248, 255, 0.76);
+}
+
+.status-pill {
+  display: inline-flex;
+  width: fit-content;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 14px;
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.mini-box {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.mini-title {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: rgba(239, 248, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.mini-box strong {
+  font-size: 20px;
+}
+
+.stats-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.stat-card {
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-number {
+  font-size: 34px;
+  font-weight: 800;
+  color: var(--primary-dark);
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.feature-card {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.accent-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.84), rgba(255, 248, 227, 0.92));
+}
+
+.feature-header h2,
+.section-heading h2,
+.cta-banner h2 {
+  margin-top: 10px;
+  font-size: 30px;
+  line-height: 1.15;
+}
+
+.feature-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.feature-list li {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--surface-strong);
+  border: 1px solid rgba(23, 50, 77, 0.08);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.card-action {
+  margin-top: auto;
+  width: fit-content;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #1d2d3d;
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 14px 24px rgba(240, 162, 2, 0.25);
+}
+
+.workflow-section {
+  padding: 30px;
+}
+
+.section-heading {
+  margin-bottom: 22px;
+}
+
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.workflow-card {
+  background: rgba(255, 255, 255, 0.54);
+  border: 1px solid rgba(23, 50, 77, 0.08);
+  border-radius: 22px;
+  padding: 22px;
+}
+
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0f6cbd, #3b91d8);
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.workflow-card h3,
+.insight-box strong {
+  font-size: 21px;
+  margin-bottom: 10px;
+}
+
+.city-showcase {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+}
+
+.city-panel,
+.insight-panel {
+  padding: 28px;
+}
+
+.compact-heading {
+  margin-bottom: 14px;
+}
+
+.city-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.city-tag {
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(15, 108, 189, 0.1);
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.insight-panel {
+  display: grid;
+  gap: 16px;
+}
+
+.insight-box {
+  border-radius: 22px;
+  padding: 22px;
+  background: var(--surface-deep);
+  color: #eff8ff;
+}
+
+.insight-title {
+  margin-bottom: 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(239, 248, 255, 0.68);
+}
+
+.insight-box span {
+  display: block;
+  color: rgba(239, 248, 255, 0.76);
+}
+
+.cta-banner {
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.primary-action:hover,
+.secondary-action:hover,
+.card-action:hover {
+  transform: translateY(-2px);
+}
+
+.primary-action:active,
+.secondary-action:active,
+.card-action:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 980px) {
+  body {
+    padding: 18px;
+  }
+
+  .hero,
+  .features,
+  .city-showcase,
+  .workflow-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-copy,
+  .feature-card,
+  .workflow-section,
+  .city-panel,
+  .insight-panel,
+  .cta-banner {
+    padding: 24px;
+  }
+
+  .cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero-copy h1 {
+    max-width: none;
+  }
+
+  .primary-action,
+  .secondary-action,
+  .card-action {
+    width: 100%;
+  }
+
+  .mini-grid,
+  .stats-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions,
+  .cta-actions {
+    width: 100%;
+  }
+}
